@@ -1,3 +1,5 @@
+import { cart } from "../data/cart.js";
+import { products } from "../data/products.js";
 // Save the date
 
 // combine the HTML
