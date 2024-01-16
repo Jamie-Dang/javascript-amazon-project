@@ -7,11 +7,7 @@ import {
   deliveryOptions,
   getDeliveryOption,
 } from "../../data/deliveryOptions.js";
-
-hello();
-const today = dayjs();
-const deliveryDate = today.add(7, "days");
-console.log(deliveryDate.format("dddd, MMMM D"));
+import { renderPaymentSummary } from "./paymentSummary.js";
 
 // means to display on the page (this function (order summary) should display the order summary on the page)
 export function renderOrderSummary() {
@@ -121,6 +117,7 @@ export function renderOrderSummary() {
         `.js-cart-item-container-${productId}`
       );
       container.remove();
+      renderPaymentSummary();
     });
   });
 
@@ -132,6 +129,7 @@ export function renderOrderSummary() {
       updateDeliveryOption(productId, deliveryOptionId); //So how to get these two params => Use data (this is called dateset)- (in HTML)
       // rerun the page directly
       renderOrderSummary();
+      renderPaymentSummary();
     });
   });
 }
